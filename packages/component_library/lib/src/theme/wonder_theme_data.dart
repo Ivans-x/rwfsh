@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:component_library/component_library.dart';
 import 'package:component_library/src/theme/spacing.dart';
 import 'package:flutter/material.dart';
@@ -79,9 +81,54 @@ class DarkWonderThemeData extends WonderThemeData {
   @override
   ThemeData get materialThemeData => ThemeData(
         brightness: Brightness.dark,
-        toggleableActiveColor: Colors.white,
         primarySwatch: Colors.white.toMaterialColor(),
         dividerTheme: _dividerThemeData,
+        checkboxTheme: CheckboxThemeData(
+          fillColor: WidgetStateProperty.resolveWith<Color?>(
+              (Set<WidgetState> states) {
+            if (states.contains(WidgetState.disabled)) {
+              return null;
+            }
+            if (states.contains(WidgetState.selected)) {
+              return Colors.white;
+            }
+            return null;
+          }),
+        ),
+        radioTheme: RadioThemeData(
+          fillColor: WidgetStateProperty.resolveWith<Color?>(
+              (Set<WidgetState> states) {
+            if (states.contains(WidgetState.disabled)) {
+              return null;
+            }
+            if (states.contains(WidgetState.selected)) {
+              return Colors.white;
+            }
+            return null;
+          }),
+        ),
+        switchTheme: SwitchThemeData(
+          thumbColor: WidgetStateProperty.resolveWith<Color?>(
+              (Set<WidgetState> states) {
+            if (states.contains(WidgetState.disabled)) {
+              return null;
+            }
+            if (states.contains(WidgetState.selected)) {
+              return Colors.white;
+            }
+            return null;
+          }),
+          trackColor: WidgetStateProperty.resolveWith<Color?>(
+              (Set<WidgetState> states) {
+            if (states.contains(WidgetState.disabled)) {
+              return null;
+            }
+            if (states.contains(WidgetState.selected)) {
+              return Colors.white;
+            }
+            return null;
+          }),
+        ),
       );
 
   @override
