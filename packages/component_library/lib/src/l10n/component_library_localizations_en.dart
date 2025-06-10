@@ -1,4 +1,8 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 import 'component_library_localizations.dart';
+
+// ignore_for_file: type=lint
 
 /// The translations for English (`en`).
 class ComponentLibraryLocalizationsEn extends ComponentLibraryLocalizations {
@@ -29,14 +33,11 @@ class ComponentLibraryLocalizationsEn extends ComponentLibraryLocalizations {
   String get exceptionIndicatorTryAgainButton => 'Try Again';
 
   @override
-  String get exceptionIndicatorGenericMessage =>
-      'There has been an error.\nPlease, check your internet connection and try again later.';
+  String get exceptionIndicatorGenericMessage => 'There has been an error.\nPlease, check your internet connection and try again later.';
 
   @override
-  String get genericErrorSnackbarMessage =>
-      'There has been an error. Please, check your internet connection.';
+  String get genericErrorSnackbarMessage => 'There has been an error. Please, check your internet connection.';
 
   @override
-  String get authenticationRequiredErrorSnackbarMessage =>
-      'You need to sign in before performing this action.';
+  String get authenticationRequiredErrorSnackbarMessage => 'You need to sign in before performing this action.';
 }

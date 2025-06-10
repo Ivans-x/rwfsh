@@ -1,4 +1,8 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 import 'update_profile_localizations.dart';
+
+// ignore_for_file: type=lint
 
 /// The translations for Portuguese (`pt`).
 class UpdateProfileLocalizationsPt extends UpdateProfileLocalizations {
@@ -14,16 +18,13 @@ class UpdateProfileLocalizationsPt extends UpdateProfileLocalizations {
   String get usernameTextFieldLabel => 'Usuário';
 
   @override
-  String get usernameTextFieldEmptyErrorMessage =>
-      'Seu usuário não pode ser vazio.';
+  String get usernameTextFieldEmptyErrorMessage => 'Seu usuário não pode ser vazio.';
 
   @override
-  String get usernameTextFieldInvalidErrorMessage =>
-      'Seu usuário precisa ter entre 1 e 20 caracteres e pode conter apenas letras, números, e underline (_).';
+  String get usernameTextFieldInvalidErrorMessage => 'Seu usuário precisa ter entre 1 e 20 caracteres e pode conter apenas letras, números, e underline (_).';
 
   @override
-  String get usernameTextFieldAlreadyTakenErrorMessage =>
-      'Este usuário já está cadastrado.';
+  String get usernameTextFieldAlreadyTakenErrorMessage => 'Este usuário já está cadastrado.';
 
   @override
   String get emailTextFieldLabel => 'Email';
@@ -35,20 +36,17 @@ class UpdateProfileLocalizationsPt extends UpdateProfileLocalizations {
   String get emailTextFieldInvalidErrorMessage => 'Este email não é válido.';
 
   @override
-  String get emailTextFieldAlreadyRegisteredErrorMessage =>
-      'Este email já está cadastrado.';
+  String get emailTextFieldAlreadyRegisteredErrorMessage => 'Este email já está cadastrado.';
 
   @override
   String get passwordTextFieldLabel => 'Nova Senha';
 
   @override
-  String get passwordTextFieldInvalidErrorMessage =>
-      'Sua senha precisa ter pelo menos cinco caracteres.';
+  String get passwordTextFieldInvalidErrorMessage => 'Sua senha precisa ter pelo menos cinco caracteres.';
 
   @override
   String get passwordConfirmationTextFieldLabel => 'Confirmação da Nova Senha';
 
   @override
-  String get passwordConfirmationTextFieldInvalidErrorMessage =>
-      'Suas senhas precisam ser iguais.';
+  String get passwordConfirmationTextFieldInvalidErrorMessage => 'Suas senhas precisam ser iguais.';
 }
