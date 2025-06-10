@@ -73,12 +73,13 @@ class QuoteDetailsView extends StatelessWidget {
           }
         },
         builder: (context, state) {
-          return WillPopScope(
-            onWillPop: () async {
-              final displayedQuote =
-                  state is QuoteDetailsSuccess ? state.quote : null;
-              Navigator.of(context).pop(displayedQuote);
-              return false;
+          return PopScope(
+            onPopInvoked: (bool didPop) {
+              if (didPop) {
+                final displayedQuote =
+                    state is QuoteDetailsSuccess ? state.quote : null;
+                Navigator.of(context).pop(displayedQuote);
+              }
             },
             child: Scaffold(
               appBar: state is QuoteDetailsSuccess

@@ -46,25 +46,16 @@ void main() async {
         }).sendPort,
       );
 
-      runApp(
-        WonderWords(
-          remoteValueService: remoteValueService,
-        ),
-      );
+      runApp(WonderWords(remoteValueService: remoteValueService));
     },
-    (error, stack) => errorReportingService.recordError(
-      error,
-      stack,
-      fatal: true,
-    ),
+    (error, stack) =>
+        errorReportingService.recordError(error, stack, fatal: true),
   );
 }
 
 class WonderWords extends StatefulWidget {
-  const WonderWords({
-    required this.remoteValueService,
-    Key? key,
-  }) : super(key: key);
+  const WonderWords({required this.remoteValueService, Key? key})
+    : super(key: key);
 
   final RemoteValueService remoteValueService;
 
@@ -76,7 +67,7 @@ class _WonderWordsState extends State<WonderWords> {
   final _keyValueStorage = KeyValueStorage();
   final _analyticsService = AnalyticsService();
   final _dynamicLinkService = DynamicLinkService();
-  late final _favQsApi = FavQsApi(
+  late final FavQsApi _favQsApi = FavQsApi(
     userTokenSupplier: () => _userRepository.getUserToken(),
   );
   late final _quoteRepository = QuoteRepository(
@@ -88,12 +79,8 @@ class _WonderWordsState extends State<WonderWords> {
     noSqlStorage: _keyValueStorage,
   );
 
-  late final _routerDelegate = RoutemasterDelegate(
-    observers: [
-      ScreenViewObserver(
-        analyticsService: _analyticsService,
-      ),
-    ],
+  late final RoutemasterDelegate _routerDelegate = RoutemasterDelegate(
+    observers: [ScreenViewObserver(analyticsService: _analyticsService)],
     routesBuilder: (context) {
       return RouteMap(
         routes: buildRoutingTable(
@@ -116,10 +103,9 @@ class _WonderWordsState extends State<WonderWords> {
 
     _openInitialDynamicLinkIfAny();
 
-    _incomingDynamicLinksSubscription =
-        _dynamicLinkService.onNewDynamicLinkPath().listen(
-              _routerDelegate.push,
-            );
+    _incomingDynamicLinksSubscription = _dynamicLinkService
+        .onNewDynamicLinkPath()
+        .listen(_routerDelegate.push);
   }
 
   Future<void> _openInitialDynamicLinkIfAny() async {
@@ -143,10 +129,7 @@ class _WonderWordsState extends State<WonderWords> {
             theme: _lightTheme.materialThemeData,
             darkTheme: _darkTheme.materialThemeData,
             themeMode: darkModePreference?.toThemeMode(),
-            supportedLocales: const [
-              Locale('en', ''),
-              Locale('pt', 'BR'),
-            ],
+            supportedLocales: const [Locale('en', ''), Locale('pt', 'BR')],
             localizationsDelegates: const [
               GlobalCupertinoLocalizations.delegate,
               GlobalMaterialLocalizations.delegate,
